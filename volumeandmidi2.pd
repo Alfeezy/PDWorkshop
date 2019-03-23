@@ -1,0 +1,10 @@
+#N canvas -8 -8 1920 997 10;
+#X text 8 7 PD Workshop;
+#X text 8 25 Bastien Gliech;
+#X text 12 105 Difference between ~ and regular values?;
+#X obj 112 146 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 112 179 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 249 145 127;
+#X text 249 178 127;
