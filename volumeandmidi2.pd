@@ -2,9 +2,61 @@
 #X text 8 7 PD Workshop;
 #X text 8 25 Bastien Gliech;
 #X text 12 105 Difference between ~ and regular values?;
-#X obj 112 146 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 370 36 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 112 179 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+#X floatatom 367 56 5 0 0 0 - - -, f 5;
+#X text 365 12 sliders output a defined value;
+#X obj 62 177 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 100 1;
+#X text 25 170 127;
+#X text 39 295 0;
+#X text 86 235 frequency;
+#X obj 238 178 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X text 249 145 127;
-#X text 249 178 127;
+#X text 270 236 volume;
+#X obj 62 372 osc~ 440;
+#X obj 62 414 *~;
+#X obj 238 370 * 0.005;
+#X obj 61 463 dac~;
+#X floatatom 62 343 5 0 0 0 - - -, f 5;
+#X obj 62 321 expr ($f1 * 20) + 22;
+#X msg 364 195 60;
+#X msg 397 195 62;
+#X msg 430 195 64;
+#X msg 463 195 65;
+#X msg 495 195 67;
+#X msg 528 195 69;
+#X msg 560 195 71;
+#X msg 593 195 72;
+#X obj 364 368 dac~;
+#X obj 364 239 mtof;
+#X text 403 240 Tranlate MIDI #s to frequency (Hz);
+#X obj 364 324 *~;
+#X obj 674 78 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 12700 1;
+#X text 706 136 volume;
+#X obj 674 270 * 0.005;
+#X obj 364 266 osc~ 440;
+#X connect 3 0 4 0;
+#X connect 6 0 17 0;
+#X connect 10 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 13 0 15 1;
+#X connect 14 0 13 1;
+#X connect 16 0 12 0;
+#X connect 17 0 16 0;
+#X connect 18 0 27 0;
+#X connect 19 0 27 0;
+#X connect 20 0 27 0;
+#X connect 21 0 27 0;
+#X connect 22 0 27 0;
+#X connect 23 0 27 0;
+#X connect 24 0 27 0;
+#X connect 25 0 27 0;
+#X connect 27 0 33 0;
+#X connect 29 0 26 0;
+#X connect 29 0 26 1;
+#X connect 30 0 32 0;
+#X connect 32 0 29 1;
+#X connect 33 0 29 0;

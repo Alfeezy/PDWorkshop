@@ -1,0 +1,59 @@
+#N canvas -8 -8 1920 997 10;
+#X text 8 7 PD Workshop;
+#X text 8 25 Bastien Gliech;
+#X text 11 60 Let's get a bit more complicated. I am going to build
+a sequencer.;
+#X text 16 116 First we have to build a stepper. This requires;
+#X text 14 138 1 Timing;
+#X text 14 158 2 Some modulo functionality;
+#X obj 20 208 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 46 208 toggle our metronome;
+#X text 116 288 stores a floating point var;
+#X obj 20 289 f;
+#X obj 55 289 + 1;
+#X obj 20 313 % 8;
+#X obj 20 243 metro 250;
+#X floatatom 20 335 5 0 0 0 - - -, f 5;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample2 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 435 197 graph;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample1 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 435 27 graph;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample3 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 435 368 graph;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array sample4 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1 0 0;
+#X restore 435 536 graph;
+#X msg 132 360 sample1;
+#X msg 192 360 sample2;
+#X msg 252 360 sample3;
+#X msg 312 360 sample4;
+#X connect 6 0 12 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 1;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
