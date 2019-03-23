@@ -1,0 +1,89 @@
+#N canvas -8 -8 1920 997 10;
+#X text 548 30 NOTE: ctrl+e or Edit->Edit Mode allows us to modify
+objects and data. Without edit mod on \, we can interact with messages
+\, bangs \, and all sorts of other stuff.;
+#X msg 556 213 45;
+#X text 104 236 | inlet: oscillation frequency;
+#X obj 118 252 osc~ 440;
+#X text 23 158 This is an object. Object are placed using ctrl+1 \,
+or Put -> Object. all objects have inlets (think parameters) and outlets
+(think returns). For example \, osc~ is a basic sin wave generator.
+The 440 is a creation argument \, which makes it oscillate at 440 Hz
+;
+#X text 110 270 | outlet: generated signal;
+#X text 21 298 This [osc~] won't make a sound until we connect it to
+the [dac~] object. This takes our signal \, and outputs the sound through
+our audio driver.;
+#X obj 195 357 osc~ 440;
+#X obj 185 443 dac~;
+#X text 223 436 right channel (speaker);
+#X text 19 438 left channel (speaker);
+#X text 19 470 Finally \, in order for sound to be output \, we must
+turn on the DSP. Think of this as a toggle for the audio driver.;
+#X text 26 520 ctrl+/;
+#X text 79 521 OR;
+#X text 105 521 Media -> DSP On;
+#X text 548 159 Messages are placed using ctrl+2 or Put -> Message.
+They are necessary in all sorts of inlet-based things;
+#X symbolatom 629 248 10 0 0 0 - - -, f 10;
+#X floatatom 719 248 5 0 0 0 - - -, f 5;
+#X msg 597 213 15;
+#X msg 646 213 2;
+#X text 683 212 They can be floating point numbers;
+#X obj 555 314 print;
+#X msg 555 287 "Hello world!";
+#X text 672 288 They can be strings or symbols;
+#X text 716 348 Whitespace seperation creates lists \, which can act
+as multiple arguments;
+#X obj 558 388 expr ($f1 + $f2) / $f3;
+#X text 558 247 (typeof);
+#X text 760 246 (value);
+#X floatatom 558 416 5 0 0 0 - - -, f 5;
+#X msg 558 355 6 12 3;
+#X msg 619 355 120 833 54;
+#X floatatom 179 636 5 0 0 0 - - -, f 5;
+#X text 24 578 ctrl+3 creates a number box. They're quite simple \,
+they can either receive or output a value. The calue can be change
+with mouse or keyboard. (Must have edit mode off);
+#X text 54 29 Hello \, I'm a comment. You can place me using: - ctrl+5
+for PC - cmd+5 for mac - Put -> Comment;
+#X obj 560 485 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 560 559 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 560 584 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 587 558 bang bang;
+#X obj 689 596 random 10;
+#X obj 689 554 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 731 559 big bang theory;
+#X obj 879 579 metro 1000;
+#X obj 879 555 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 907 554 This is a toggle. It does exactly that.;
+#X obj 879 606 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 689 620 5 0 0 0 - - -, f 5;
+#X text 592 476 I'm a bang! You can create me with crtl+shift+b \,
+or Put -> Bang. I act as a sort of "trigger" for object events. I can
+also visually show when I receive a bang as an input.;
+#X text 967 577 [metro] outputs a bang every n ms (1000ms in this case)
+;
+#X connect 1 0 16 0;
+#X connect 1 0 17 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 18 0 16 0;
+#X connect 18 0 17 0;
+#X connect 19 0 16 0;
+#X connect 19 0 17 0;
+#X connect 22 0 21 0;
+#X connect 25 0 28 0;
+#X connect 29 0 25 0;
+#X connect 30 0 25 0;
+#X connect 35 0 36 0;
+#X connect 38 0 45 0;
+#X connect 39 0 38 0;
+#X connect 41 0 44 0;
+#X connect 42 0 41 0;
