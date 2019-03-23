@@ -1,0 +1,25 @@
+#N canvas 280 122 528 543 10;
+#X obj 188 449 writesf~ 2;
+#X obj 188 101 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 188 297 savepanel;
+#X msg 188 318 open \$1;
+#X msg 246 391 start;
+#X obj 246 369 sel 1 0;
+#X msg 288 391 stop;
+#X obj 204 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 23 97 inlet~;
+#X text 250 298 choose file with bang;
+#X text 297 368 start/stop with toggle;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;
+#X connect 5 0 4 0;
+#X connect 5 1 6 0;
+#X connect 6 0 0 0;
+#X connect 7 0 5 0;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X coords 0 -1 1 1 120 17 1 100 100;

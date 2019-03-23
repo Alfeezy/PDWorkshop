@@ -1,0 +1,68 @@
+#N canvas 198 92 976 667 10;
+#X msg 373 241 60;
+#X msg 401 241 62;
+#X msg 430 241 64;
+#X msg 459 241 67;
+#X msg 488 241 69;
+#X msg 517 241 72;
+#X obj 373 280 mtof;
+#X obj 373 307 expr 44100 / ($f1 * 1.09545) * 0.025;
+#X obj 244 344 noise~;
+#X obj 244 479 *~;
+#X msg 289 455 0;
+#X obj 259 401 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 289 429 del 10;
+#X floatatom 373 334 5 0 0 0 - - -, f 5;
+#X obj 244 557 delwrite~ pluck 1000;
+#X obj 373 406 *~ 0.98;
+#X obj 373 503 dac~;
+#X text 599 308 pitch calculation;
+#X msg 259 455 0.5;
+#X obj 373 131 key;
+#X text 404 130 the key object prompts our keyboards;
+#X floatatom 373 165 5 0 0 0 - - -, f 5;
+#X text 408 164 and assigns each keystroke a numerical value;
+#X obj 373 199 sel 49 50 51 52 53 54;
+#X text 509 200 which we can select and use as an event gentrator \,
+or "bang";
+#X obj 373 369 vd~ pluck;
+#X text 29 12 Advanced Computer Music Composition;
+#X text 30 64 Designed by Kevin Karplus and Alexander Strong \, the
+K/S plucked string algorithm uses a regenerating delay line to approximate
+the sound of a plucked string using white noise.;
+#X text 375 556 name of our delay line and max delay time;
+#X text 451 427 **note that this is sent to [dac~] AND back to delay
+line \, hence the feedback loop (and need for a decay time);
+#X text 425 406 decay amount (don't go over 1!!);
+#X obj 172 284 noise~;
+#X text 29 32 class 10 - Karplus/Strong plucked string algorithm;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 13 0;
+#X connect 9 0 14 0;
+#X connect 10 0 9 1;
+#X connect 11 0 18 0;
+#X connect 11 0 12 0;
+#X connect 12 0 10 0;
+#X connect 13 0 25 0;
+#X connect 15 0 16 0;
+#X connect 15 0 16 1;
+#X connect 15 0 14 0;
+#X connect 18 0 9 1;
+#X connect 19 0 21 0;
+#X connect 21 0 23 0;
+#X connect 23 0 0 0;
+#X connect 23 1 1 0;
+#X connect 23 2 2 0;
+#X connect 23 3 3 0;
+#X connect 23 4 4 0;
+#X connect 23 5 5 0;
+#X connect 25 0 15 0;
+#X connect 31 0 9 0;

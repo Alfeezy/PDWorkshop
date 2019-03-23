@@ -1,0 +1,41 @@
+#N canvas 203 55 872 665 10;
+#X text 88 95 Use shift-cmnd-t for a toggle box;
+#X obj 90 127 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 90 147 5 0 0 0 - - -, f 5;
+#X text 133 137 It outputs 0 and 1;
+#X text 89 186 It can do any of a number of things in your patch \,
+but one use is in conjuntion with [spigot];
+#X floatatom 176 242 5 0 0 0 - - -, f 5;
+#X obj 176 286 spigot;
+#X obj 209 268 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 176 313 5 0 0 0 - - -, f 5;
+#X text 233 267 Practice turning the spigot on and off to pass or close
+the flow of data to the number box.;
+#X text 144 375 Just to tidy up the rest of our control work \, try
+using the sliders that are available to you.;
+#X obj 173 428 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 229 427 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text 198 545 V-slider;
+#X text 312 452 H-slider;
+#X obj 415 435 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 472 484 VU-meters;
+#X obj 609 439 vradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X floatatom 609 566 5 0 0 0 - - -, f 5;
+#X obj 727 458 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X text 641 494 V-radio;
+#X text 789 481 H-radio;
+#X text 168 602 Default output is 0-127 \, but change that by right-clicking
+and selecting "Properties" to adjust the output range.;
+#X text 15 13 Advanced Computer Music Composition;
+#X text 15 35 class 03- gui objects;
+#X connect 1 0 2 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 17 0 18 0;

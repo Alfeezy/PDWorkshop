@@ -1,0 +1,47 @@
+#N canvas 269 102 847 626 10;
+#X obj 178 211 noise~;
+#X obj 178 328 *~;
+#X msg 193 304 1;
+#X msg 223 304 0;
+#X obj 193 238 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 223 278 del 10;
+#X obj 178 358 delwrite~ snap 500;
+#X obj 346 572 dac~;
+#X obj 308 436 delread~ snap 500;
+#X text 37 13 Advanced Computer Music Composition;
+#X text 37 66 Just as we can delay a bang or data set...;
+#X obj 38 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 38 111 del 500;
+#X obj 38 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 122 90 500;
+#X obj 122 113 pipe 500;
+#X floatatom 122 139 5 0 0 0 - - -, f 5;
+#X text 168 179 ...we can delay audio signals;
+#X text 299 357 delwrite~ needs a variable name and a MAX delay time
+in ms;
+#X text 421 437 delread~ is the corresponding delay line (be sure to
+match the variable name from delwrite~ and specifed delay time \, which
+is always <= MAX delay time specified earlier;
+#X text 425 525 vd~ is a variable delay line \, which allows for real-time
+updating of delay time \, provided it is <= MAX delay time;
+#X floatatom 367 505 5 0 0 0 - - -, f 5;
+#X obj 367 531 vd~ snap;
+#X text 410 503 vd~ needs an input number box or message;
+#X text 38 33 class 10 - delay;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 1;
+#X connect 4 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 8 0 7 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 1;

@@ -1,0 +1,47 @@
+#N canvas 261 60 824 674 10;
+#X text 28 21 Advanced Computer Music Composition;
+#X text 31 98 By now \, we're beginning to use quite a few objects
+with many \, many patch lines on our canvases. To tidy things up \,
+we use send and receive.;
+#X floatatom 47 175 5 0 0 0 - - -, f 5;
+#X obj 47 211 abs;
+#X text 78 213 absolute value (or distance from 0);
+#X floatatom 47 251 5 0 0 0 - - -, f 5;
+#X floatatom 340 167 5 0 0 0 - - -, f 5;
+#X obj 340 186 send value;
+#X obj 430 186 receive value;
+#X obj 430 212 abs;
+#X floatatom 430 238 5 0 0 0 - - -, f 5;
+#X text 83 174 (scroll down);
+#X text 40 384 We can do the same for signals...;
+#X obj 133 430 adc~;
+#X obj 133 460 send~ voice;
+#X obj 336 291 s somevalue;
+#X obj 416 291 r somevalue;
+#X text 375 267 Abbreviations work too...;
+#X obj 233 457 receive~ voice;
+#X obj 279 563 tabwrite~ window;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array window 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 441 437 graph;
+#X obj 326 539 metro 50;
+#X obj 326 485 loadbang;
+#X msg 326 511 1;
+#X text 348 605 (loadbang will send a bang upon opening your Pd patch)
+;
+#X text 26 47 class 6 - send / receive;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 6 0 7 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 13 0 14 0;
+#X connect 18 0 19 0;
+#X connect 21 0 19 0;
+#X connect 22 0 23 0;
+#X connect 23 0 21 0;

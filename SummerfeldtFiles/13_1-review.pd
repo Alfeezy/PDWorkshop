@@ -1,0 +1,52 @@
+#N canvas 348 39 769 703 10;
+#X text 32 12 Advanced Computer Music Composition;
+#X text 34 65 We can read soundfiles into Pd using Arrays and the [openpanel]/[soundfiler]
+objects;
+#X msg 39 114 bang;
+#X obj 39 138 openpanel;
+#X msg 39 160 read -resize \$1 sampler;
+#X obj 39 182 soundfiler;
+#X floatatom 39 204 10 0 0 0 - - -, f 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sampler 125356 float 0;
+#X coords 0 1 125355 -1 200 140 1;
+#X restore 442 53 graph;
+#X text 108 204 resize this box using Properties;
+#X text 191 161 match last arg. to name of array;
+#X msg 380 217 \; sampler normalize;
+#X text 500 225 normalize sounds;
+#X text 89 273 The tabread4~ object allows us to read forward/backward
+at varying speeds. A [phasor~] attached to [tabread4~] will loop continuously.
+;
+#X text 49 222 total number of samples in audio file;
+#X obj 53 366 phasor~;
+#X obj 53 397 *~ 125356;
+#X text 130 361 [phasor~] really just outputs a cycling stream of numbers
+from 0-1 -- though we can use it as a sawtooth wave generator -- so
+multiplying by the total number of samples in our audio file will read
+continuously from 0-end.;
+#X obj 53 475 tabread4~ sampler;
+#X obj 53 572 *~;
+#X obj 68 551 line~;
+#X obj 53 602 dac~;
+#X msg 68 525 0 1000;
+#X msg 117 525 0.75 1000;
+#X floatatom 53 334 5 0 0 0 - - -, f 5;
+#X text 253 444 frequencies? 1 = 1 cycle/second or loop every second
+;
+#X text 355 462 0.5 = loop every two seconds;
+#X text 355 480 0.25 = loop every four \, etc...;
+#X text 30 29 Class 13 - review;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 14 0 15 0;
+#X connect 15 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 20 0;
+#X connect 18 0 20 1;
+#X connect 19 0 18 1;
+#X connect 21 0 19 0;
+#X connect 22 0 19 0;
+#X connect 23 0 14 0;

@@ -1,0 +1,57 @@
+#N canvas 184 40 900 733 10;
+#X text 427 48 Here are a few pratcial applications \, to wrap up our
+work with control objects.;
+#X text 428 96 Remember our volume control from earlier? We can "ramp"
+those times using a few messages.;
+#X obj 469 201 line;
+#X text 468 135 The line object takes messages with two or more arguments
+;
+#X msg 562 172 0 1000;
+#X msg 615 171 100 10000;
+#X obj 432 135 line;
+#X floatatom 469 227 5 0 0 0 - - -, f 5;
+#X text 510 202 Can you guess the purpose of these various arguments?
+;
+#X msg 469 172 0 \, 100 10000;
+#X text 121 274 Let's put this to use with values between 0 and 1;
+#X obj 113 312 osc~ 440;
+#X obj 176 409 *~;
+#X obj 191 383 line~;
+#X text 232 383 Need the "~" b/c we're working with audio!;
+#X msg 191 351 0 1000;
+#X msg 240 350 0.8 1000;
+#X obj 176 441 dac~;
+#X text 296 445 What if we wanted to update our values for volume?
+;
+#X obj 330 484 osc~ 440;
+#X obj 434 644 *~;
+#X obj 449 618 line~;
+#X msg 476 568 1000;
+#X obj 449 594 pack;
+#X text 482 594 [pack] will append messages;
+#X obj 449 542 t f b;
+#X obj 434 677 dac~;
+#X floatatom 449 511 5 0 0 0 - - -, f 5;
+#X text 509 509 Quick note: Pd can use integers (whole numbers) or
+floating-point numbers (decimals).;
+#X text 30 16 Advanced Computer Music Composition;
+#X text 29 39 class 3 - line object;
+#X connect 2 0 7 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 9 0 2 0;
+#X connect 11 0 12 0;
+#X connect 12 0 17 0;
+#X connect 12 0 17 1;
+#X connect 13 0 12 1;
+#X connect 15 0 13 0;
+#X connect 16 0 13 0;
+#X connect 19 0 20 0;
+#X connect 20 0 26 0;
+#X connect 20 0 26 1;
+#X connect 21 0 20 1;
+#X connect 22 0 23 1;
+#X connect 23 0 21 0;
+#X connect 25 0 23 0;
+#X connect 25 1 22 0;
+#X connect 27 0 25 0;

@@ -1,0 +1,40 @@
+#N canvas 191 60 852 598 10;
+#X text 19 12 Advanced Computer Music Composition;
+#X text 67 88 Now that we've saved our FM instrument as [fminst~] in
+the same folder/directory as this new patch \, we can use it (for good
+and not evil \, of course...);
+#X obj 306 306 fminst~;
+#X text 379 308 Remember that L->R is carrier \, modulator \, index
+;
+#X obj 306 443 dac~;
+#X text 384 459 This makes it WAY easier to reuse code \, use multiple
+fminsts (or whatever you created) in your patch \, save canvas space
+\, etc.;
+#X obj 345 280 int;
+#X obj 372 280 + 1;
+#X obj 345 235 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 306 167 5 0 0 0 - - -, f 5;
+#X obj 325 191 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 325 212 random 20;
+#X obj 345 257 metro 50;
+#X obj 306 414 *~;
+#X obj 321 392 line~;
+#X msg 321 365 0 1000;
+#X msg 370 365 0.75 1000;
+#X text 18 32 class 15 - abstractions \, cont'd;
+#X connect 2 0 13 0;
+#X connect 6 0 7 0;
+#X connect 6 0 2 2;
+#X connect 7 0 6 1;
+#X connect 8 0 12 0;
+#X connect 9 0 2 0;
+#X connect 10 0 11 0;
+#X connect 11 0 2 1;
+#X connect 12 0 6 0;
+#X connect 13 0 4 0;
+#X connect 13 0 4 1;
+#X connect 14 0 13 1;
+#X connect 15 0 14 0;
+#X connect 16 0 14 0;

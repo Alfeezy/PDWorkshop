@@ -1,0 +1,64 @@
+#N canvas 317 23 875 720 10;
+#X text 253 54 The [delay] object will delay a bang and [pipe] will
+delay a number given a specified argument for time (in ms);
+#X obj 256 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 256 128 del 1000;
+#X obj 256 160 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 315 128 one second later;
+#X msg 437 105 440;
+#X obj 437 130 pipe 1000;
+#X floatatom 437 158 5 0 0 0 - - -, f 5;
+#X text 251 205 The [metro] object works just like our metronome. It
+outputs a bang every given ms.;
+#X obj 344 305 metro 1000;
+#X msg 260 242 bang;
+#X msg 297 242 stop;
+#X obj 344 242 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 344 335 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 401 275 125;
+#X msg 430 275 250;
+#X msg 460 275 500;
+#X msg 490 275 1000;
+#X text 403 246 Change tempo via right inlet;
+#X text 353 378 The [random] object outputs a pseudorandom number betwen
+0 and the argument you specify.;
+#X obj 457 438 random 1000;
+#X text 538 438 connect this to the [metro] above.;
+#X obj 457 416 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 457 465 5 0 0 0 - - -, f 5;
+#X text 500 516 This is useful in many ways \, but how about a random
+oscillator melody?;
+#X obj 457 567 osc~;
+#X obj 491 632 *~;
+#X obj 491 657 dac~;
+#X obj 506 609 line~;
+#X msg 506 584 0 1000;
+#X msg 554 584 0.8 1000;
+#X text 13 14 Advanced Computer Music Composition;
+#X text 12 35 class 4 - delay \, metro \, random;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 9 0 13 0;
+#X connect 10 0 9 0;
+#X connect 11 0 9 0;
+#X connect 12 0 9 0;
+#X connect 14 0 9 1;
+#X connect 15 0 9 1;
+#X connect 16 0 9 1;
+#X connect 17 0 9 1;
+#X connect 20 0 23 0;
+#X connect 22 0 20 0;
+#X connect 23 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 26 0 27 1;
+#X connect 28 0 26 1;
+#X connect 29 0 28 0;
+#X connect 30 0 28 0;

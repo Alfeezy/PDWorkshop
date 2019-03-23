@@ -1,0 +1,52 @@
+#N canvas 113 39 769 703 10;
+#X text 32 12 Advanced Computer Music Composition;
+#X obj 41 128 soundfiler;
+#X floatatom 41 150 10 0 0 0 - - -, f 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sampler 132701 float 0;
+#X coords 0 1 132700 -1 200 140 1;
+#X restore 462 53 graph;
+#X text 252 108 match last arg. to name of array;
+#X msg 41 220 \; sampler normalize;
+#X text 233 288 The tabread4~ object allows us to read forward/backward
+at varying speeds. A [phasor~] attached to [tabread4~] will loop continuously.
+;
+#X obj 197 381 phasor~;
+#X text 274 376 [phasor~] really just outputs a cycling stream of numbers
+from 0-1 -- though we can use it as a sawtooth wave generator -- so
+multiplying by the total number of samples in our audio file will read
+continuously from 0-end.;
+#X obj 197 490 tabread4~ sampler;
+#X obj 197 587 *~;
+#X obj 212 566 line~;
+#X obj 197 617 dac~;
+#X msg 212 540 0 1000;
+#X msg 261 540 0.75 1000;
+#X floatatom 197 349 5 0 0 0 - - -, f 5;
+#X text 397 459 frequencies? 1 = 1 cycle/second or loop every second
+;
+#X text 499 477 0.5 = loop every two seconds;
+#X text 499 495 0.25 = loop every four \, etc...;
+#X obj 41 169 t b;
+#X obj 41 194 del 500;
+#X text 30 29 class 12 - looping;
+#X msg 41 106 read -resize yououghta.wav sampler;
+#X obj 41 73 loadbang;
+#X obj 197 412 *~ 132701;
+#X text 245 348 My audio file is 3 seconds \, so 0.33 will loop every
+three...;
+#X connect 1 0 2 0;
+#X connect 2 0 19 0;
+#X connect 7 0 24 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 10 0 12 1;
+#X connect 11 0 10 1;
+#X connect 13 0 11 0;
+#X connect 14 0 11 0;
+#X connect 15 0 7 0;
+#X connect 19 0 20 0;
+#X connect 20 0 5 0;
+#X connect 22 0 1 0;
+#X connect 23 0 22 0;
+#X connect 24 0 9 0;

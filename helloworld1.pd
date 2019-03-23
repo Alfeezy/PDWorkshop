@@ -3,14 +3,14 @@
 objects and data. Without edit mod on \, we can interact with messages
 \, bangs \, and all sorts of other stuff.;
 #X msg 556 213 45;
-#X text 104 236 | inlet: oscillation frequency;
+#X text 113 236 | inlet: oscillation frequency;
 #X obj 118 252 osc~ 440;
 #X text 23 158 This is an object. Object are placed using ctrl+1 \,
 or Put -> Object. all objects have inlets (think parameters) and outlets
 (think returns). For example \, osc~ is a basic sin wave generator.
 The 440 is a creation argument \, which makes it oscillate at 440 Hz
 ;
-#X text 110 270 | outlet: generated signal;
+#X text 111 266 | outlet: generated signal;
 #X text 21 298 This [osc~] won't make a sound until we connect it to
 the [dac~] object. This takes our signal \, and outputs the sound through
 our audio driver.;
@@ -59,7 +59,7 @@ for PC - cmd+5 for mac - Put -> Comment;
 -1 -1;
 #X text 731 559 big bang theory;
 #X obj 879 579 metro 1000;
-#X obj 879 555 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 879 555 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X text 907 554 This is a toggle. It does exactly that.;
 #X obj 879 606 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -70,6 +70,8 @@ or Put -> Bang. I act as a sort of "trigger" for object events. I can
 also visually show when I receive a bang as an input.;
 #X text 967 577 [metro] outputs a bang every n ms (1000ms in this case)
 ;
+#X text 188 91 Here'a comment;
+#X msg 1025 139;
 #X connect 1 0 16 0;
 #X connect 1 0 17 0;
 #X connect 7 0 8 0;

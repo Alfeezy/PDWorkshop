@@ -1,0 +1,49 @@
+#N canvas 362 23 789 735 10;
+#X text 33 22 Advanced Computer Music Composition;
+#X text 33 86 There are many different procedures for using modulation
+synthesis in digital signal processing. One of the easiest to grasp
+is ring modulation.;
+#X obj 38 153 adc~;
+#X text 75 151 <- could replace this with any complex signal \, such
+as an audio sample;
+#X obj 69 233 *~;
+#X obj 84 211 osc~;
+#X floatatom 84 188 5 0 0 0 - - -, f 5;
+#X obj 68 272 dac~;
+#X text 111 234 multiplication produces signal itself \, and its sum
+and difference tones \, according to frequency of sine wave;
+#X text 136 269 looks similar to our amplitude modulator \, but because
+we are now multiplying by a continuous signal (rather than a constant
+number) we get the ring modulation effect;
+#X text 47 356 A very famous modulation technique is frequency modulation
+(FM) discovered by John Chowning.;
+#X text 155 405 For FM synthesis \, we add vibrato (another continuous
+signal) to an incoming signal \, with control over the depth and rate
+of that vibrato.;
+#X floatatom 382 462 5 0 0 0 - - -, f 5;
+#X obj 382 584 +~;
+#X obj 415 558 *~;
+#X floatatom 415 493 5 0 0 0 - - -, f 5;
+#X obj 415 513 osc~;
+#X text 423 462 1 Carrier (Hz);
+#X text 454 492 2 Modulator (Hz);
+#X floatatom 455 529 5 0 0 0 - - -, f 5;
+#X text 490 529 3 Index (constant);
+#X obj 382 616 osc~;
+#X obj 382 642 *~ 0.75;
+#X obj 382 670 dac~;
+#X text 498 570 Modulator = rate of vibrato;
+#X text 498 589 Index = depth of vibrato;
+#X text 33 41 class 14 - modulation synthesis;
+#X connect 2 0 4 0;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 12 0 13 0;
+#X connect 13 0 21 0;
+#X connect 14 0 13 1;
+#X connect 15 0 16 0;
+#X connect 16 0 14 0;
+#X connect 19 0 14 1;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 22 0 23 1;

@@ -1,0 +1,22 @@
+#N canvas 475 86 742 572 10;
+#X text 106 91 Hi \, I'm a comment;
+#X text 105 109 To make a comment \, go to Put -> Comment;
+#X text 106 126 Or \, type command-5 as a shortcut;
+#X text 106 156 Comments are incredibly useful for creating complex
+patches;
+#X text 109 199 Now \, let's make an object (Put -> Object);
+#X obj 111 237 osc~ 440;
+#X text 174 273 Note that our object has two "inlets" and one "outlet"
+;
+#X text 197 297 It's name is osc~ and its creation argument is 440
+;
+#X text 221 380 This [osc~] object won't make sound until we connect
+it to another object \, [dac~];
+#X obj 176 383 dac~;
+#X text 297 442 **Don't forget about the DSP button!**;
+#X text 199 316 This object will make a 440 Hz sinusoidsal waveform
+;
+#X text 19 12 Advanced Computer Music Composition;
+#X text 19 30 class 1 - introduction;
+#X connect 5 0 9 0;
+#X connect 5 0 9 1;

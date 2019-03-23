@@ -1,0 +1,45 @@
+#N canvas 45 55 925 704 10;
+#X text 19 12 Advanced Computer Music Composition;
+#X text 17 76 One of the biggest benefits of Pure Data is customization
+and we're able to create what are called "abstractions" or objects
+within other objects.;
+#X text 73 131 This patch will create an FM instrument that has inlets
+for altering the carrier \, modulator \, and index \, as well as an
+outlet for sending the signal.;
+#X floatatom 133 275 5 0 0 0 - - -, f 5;
+#X obj 224 424 +~;
+#X obj 257 398 *~;
+#X floatatom 257 277 5 0 0 0 - - -, f 5;
+#X obj 257 353 osc~;
+#X text 150 291 1 Carrier (Hz);
+#X text 269 293 2 Modulator (Hz);
+#X floatatom 391 277 5 0 0 0 - - -, f 5;
+#X text 401 293 3 Index (constant);
+#X obj 224 456 osc~;
+#X text 316 385 Modulator = rate of vibrato;
+#X text 316 404 Index = depth of vibrato;
+#X text 111 190 We'll need three inlets...;
+#X obj 133 237 inlet;
+#X obj 257 238 inlet;
+#X obj 391 240 inlet;
+#X text 503 235 Left to right methodology equates to inlets 1 \, 2
+\, and 3 \, read left to right of course.;
+#X obj 224 484 outlet~;
+#X text 292 485 Instead of amplitude control and [dac~] \, we'll create
+an outlet that can process audio signals.;
+#X text 341 566 **Important to name/save this "object" as something
+easy to remember \, such as fminst~. Moreover \, you'll need to save
+it to THE SAME DIRECTORY (i.e - Desktop) as the new patch you'll be
+using it within.;
+#X text 675 16 **Abstraction patch**;
+#X text 18 32 class 15 - abstractions;
+#X connect 3 0 4 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 1;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 10 0 5 1;
+#X connect 12 0 20 0;
+#X connect 16 0 3 0;
+#X connect 17 0 6 0;
+#X connect 18 0 10 0;

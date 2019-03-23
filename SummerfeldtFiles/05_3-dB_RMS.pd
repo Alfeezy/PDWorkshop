@@ -1,0 +1,51 @@
+#N canvas 158 23 809 755 10;
+#X floatatom 503 185 5 0 0 0 - - -, f 5;
+#X obj 503 205 dbtorms;
+#X floatatom 503 228 5 0 0 0 - - -, f 5;
+#X floatatom 429 185 5 0 0 0 - - -, f 5;
+#X floatatom 429 228 5 0 0 0 - - -, f 5;
+#X obj 429 205 rmstodb;
+#X text 83 156 Generally \, x <= 20 dB = silence;
+#X text 84 202 When x >= 120 \, PAIN!;
+#X obj 169 247 osc~ 440;
+#X obj 185 324 env~ 128;
+#X obj 185 410 dbtorms;
+#X text 243 324 get amplitude in dB;
+#X floatatom 185 434 5 0 0 0 - - -, f 5;
+#X text 215 290 "20%" full volume;
+#X floatatom 185 351 5 0 0 0 - - -, f 5;
+#X obj 221 379 send dB_value;
+#X obj 331 554 receive dB_value;
+#X text 372 580 100 dB is shown as 0 dB for this GUI object;
+#X obj 332 614 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X text 102 490 This is important for a variety of reasons and how
+you treat volume in your compositions is up to you \, but this whole
+dB/RMS talk is especially useful if you'd like to use VU meters in
+your Pd patches.;
+#X obj 169 290 *~ 0.2;
+#X text 228 431 Note that 0.14 != 0.2 \, because RMS is the mean value
+taken from a series of amplitude values over time. For a sine wave
+ONLY \, RMS = 0.7*x if x = scaled value btwn 0 and 1;
+#X obj 331 580 - 100;
+#X text 82 186 Shouting = 80 dB;
+#X text 82 170 Speech = 60 dB;
+#X text 39 112 Volume (amplitude) can be measured in dB (logarithmic
+measurement of sound pressure levels).;
+#X text 395 112 Or \, Root mean square (RMS);
+#X text 426 131 1 Square all amplitude values in time;
+#X text 426 144 2 Take mean of squared values;
+#X text 426 156 3 Square the mean from (2.) and RMS!;
+#X text 44 13 Advanced Computer Music Composition;
+#X text 44 36 class 5 - loudeness/volume;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 8 0 20 0;
+#X connect 9 0 14 0;
+#X connect 10 0 12 0;
+#X connect 14 0 10 0;
+#X connect 14 0 15 0;
+#X connect 16 0 22 0;
+#X connect 20 0 9 0;
+#X connect 22 0 18 0;

@@ -1,0 +1,74 @@
+#N canvas 226 23 918 724 10;
+#X text 26 9 Advanced Computer Music Composition;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array incoming_sound 100 float 3;
+#A 0 0.0163589 0.0183159 0.0192968 0.0192689 0.0184794 0.0172207 0.0160443
+0.0153586 0.0153546 0.0161139 0.0177711 0.0199447 0.021474 0.0215942
+0.0204966 0.018806 0.0167365 0.0143915 0.0117909 0.00934215 0.00697088
+0.00417983 0.00198601 0.00116517 0.00110466 0.00069498 -0.000872819
+-0.00302676 -0.00544886 -0.00822837 -0.010597 -0.011775 -0.0116454
+-0.0109821 -0.0106248 -0.0105979 -0.0106017 -0.010472 -0.00983152 -0.0090752
+-0.0094051 -0.0107042 -0.0118976 -0.0125382 -0.0128612 -0.0128095 -0.0121847
+-0.011341 -0.0110027 -0.0116984 -0.0133641 -0.0152408 -0.0164662 -0.017409
+-0.0192312 -0.0224389 -0.0263418 -0.0297164 -0.0317606 -0.0322213 -0.0314383
+-0.0306754 -0.0303539 -0.0298304 -0.0294443 -0.0292581 -0.0285967 -0.0276773
+-0.0266344 -0.0254903 -0.0248161 -0.024476 -0.0239346 -0.0226581 -0.0200377
+-0.0166366 -0.0136016 -0.0116319 -0.0106441 -0.00981324 -0.00890882
+-0.0078298 -0.00590405 -0.00325624 -0.00127088 -0.000554072 -9.85426e-05
+0.000765516 0.00188571 0.00316149 0.00425898 0.00458599 0.00427286
+0.00382568 0.0037439 0.00452985 0.00636834 0.0089015 0.011277 0.0128626
+;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 452 71 graph;
+#X text 35 97 Arrays (graphs or windows) are a great way to store data
+point \, draw graphs \, and view signals.;
+#X text 39 171 The [adc~] object prompts our internal microphone;
+#X obj 38 203 adc~;
+#X obj 38 321 tabwrite~ incoming_sound;
+#X text 194 316 make sure argument matches array name (one string of
+letters!);
+#X obj 74 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 98 241 bang to view one snapshot;
+#X obj 98 290 metro 50;
+#X obj 98 270 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 160 287 continuously view array;
+#X text 113 383 While Pd thinks of time in terms of milliseconds \,
+we can convert from beats-per-minute to ms for our uses;
+#X obj 291 464 phasor~ 70;
+#X text 197 464 sawtooth wave;
+#X obj 380 678 *~;
+#X msg 395 653 0;
+#X msg 429 653 0.75;
+#X obj 395 630 del 100;
+#X msg 399 471 60;
+#X text 437 472 tempo in bpm;
+#X obj 399 498 expr 1000 / ($f1 / 60);
+#X text 543 499 equation for bpm conversion to ms;
+#X obj 395 597 metro;
+#X floatatom 422 554 5 0 0 0 - - -, f 5;
+#X obj 395 572 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 427 572 turn metronome on/off with toggle;
+#X obj 380 703 dac~;
+#X obj 399 532 / 2;
+#X text 428 534 divide beat by 4 to pulse eighth notes;
+#X text 26 28 class 6 - review;
+#X connect 4 0 5 0;
+#X connect 7 0 5 0;
+#X connect 9 0 5 0;
+#X connect 10 0 9 0;
+#X connect 13 0 15 0;
+#X connect 15 0 27 0;
+#X connect 15 0 27 1;
+#X connect 16 0 15 1;
+#X connect 17 0 15 1;
+#X connect 18 0 16 0;
+#X connect 19 0 21 0;
+#X connect 21 0 28 0;
+#X connect 23 0 17 0;
+#X connect 23 0 18 0;
+#X connect 24 0 23 1;
+#X connect 25 0 23 0;
+#X connect 28 0 24 0;

@@ -1,0 +1,74 @@
+#N canvas 247 42 829 726 10;
+#X text 178 98 Let's create an endlessly repeating scale \, given what
+we now have in our arsenal.;
+#X text 211 141 We'll need a repeating event generator and a counter.
+;
+#X obj 181 169 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 181 195 metro 500;
+#X obj 181 225 f;
+#X obj 208 225 + 1;
+#X text 241 225 Store a number w/ [float] and continually add one to
+it.;
+#X floatatom 181 307 5 0 0 0 - - -, f 5;
+#X msg 181 358 60;
+#X msg 195 380 62;
+#X msg 210 358 63;
+#X msg 227 380 65;
+#X msg 242 358 67;
+#X msg 259 380 69;
+#X msg 273 358 70;
+#X msg 289 380 72;
+#X obj 181 333 sel 0 1 2 3 4 5 6 7;
+#X obj 181 451 osc~;
+#X obj 181 415 mtof;
+#X text 217 414 translate;
+#X obj 229 579 *~;
+#X obj 245 556 line~;
+#X msg 245 527 0 100;
+#X msg 287 527 0.8 100;
+#X obj 245 463 t b b;
+#X text 291 462 simple envelope for some shape to these notes;
+#X obj 245 498 del 200;
+#X obj 229 614 dac~;
+#X obj 181 256 mod 8;
+#X text 316 349 Savvy programming alumns will think of this as an array
+of pitches with an index value;
+#X text 232 259 [mod] returns the remainder when you divide by the
+argument given.;
+#X text 16 13 Advanced Computer Music Composition;
+#X text 16 33 class 4 - repeating scale;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 28 0;
+#X connect 5 0 4 1;
+#X connect 7 0 16 0;
+#X connect 8 0 18 0;
+#X connect 9 0 18 0;
+#X connect 10 0 18 0;
+#X connect 11 0 18 0;
+#X connect 12 0 18 0;
+#X connect 13 0 18 0;
+#X connect 14 0 18 0;
+#X connect 15 0 18 0;
+#X connect 16 0 8 0;
+#X connect 16 1 9 0;
+#X connect 16 2 10 0;
+#X connect 16 3 11 0;
+#X connect 16 4 12 0;
+#X connect 16 5 13 0;
+#X connect 16 6 14 0;
+#X connect 16 7 15 0;
+#X connect 17 0 20 0;
+#X connect 18 0 17 0;
+#X connect 20 0 27 0;
+#X connect 20 0 27 1;
+#X connect 21 0 20 1;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 24 0 26 0;
+#X connect 24 1 23 0;
+#X connect 26 0 22 0;
+#X connect 28 0 7 0;
+#X connect 28 0 24 0;

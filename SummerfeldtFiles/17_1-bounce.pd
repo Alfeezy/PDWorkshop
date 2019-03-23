@@ -1,0 +1,51 @@
+#N canvas 465 23 757 755 10;
+#X obj 241 503 vline~;
+#X msg 241 178 1 \, 0 3000;
+#X text 307 178 ramp from 1 to 0 over 3000 ms;
+#X obj 241 212 t b a;
+#X text 279 213 pass bang to [metro] and list (anything) to line;
+#X obj 241 350 metro 500;
+#X obj 292 248 line;
+#X obj 292 322 * 300;
+#X text 333 321 ramped series of bangs from 300 to 1;
+#X obj 313 382 * 200;
+#X text 351 382 ramp from 200 to 1;
+#X obj 241 416 f;
+#X text 268 418 store/send rampVal each time a bang from [metro];
+#X msg 241 450 1 1 0 \, 0 \$1 1;
+#X text 331 450 [vline~] needs target \, time \, initial delay;
+#X obj 241 548 *~;
+#X obj 226 652 dac~;
+#X obj 226 584 *~;
+#X obj 175 548 osc~ 480;
+#X text 270 549 for each incoming value (x) take x2;
+#X text 18 9 Advanced Computer Music Composition;
+#X text 18 29 class 17 - sound effects;
+#X text 19 56 This week's effects are adapted from Andy Farnell's book
+Designing Sound \, which is a great \, all-encompassing book about
+Pure Data and synthesis.;
+#X text 22 121 Here is the bouncing ball example \, adapted and simplified
+\, from pg. 385;
+#X text 288 498 each time this is triggered \, to goes to 1 over 1
+ms \, then from 1 to 0 over each new decay time.;
+#X text 93 549 sound source;
+#X text 261 619 decrease amplitude overall;
+#X obj 226 618 *~;
+#X connect 0 0 15 0;
+#X connect 0 0 15 1;
+#X connect 1 0 3 0;
+#X connect 3 0 5 0;
+#X connect 3 1 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 6 0 9 0;
+#X connect 6 0 27 1;
+#X connect 7 0 5 1;
+#X connect 9 0 11 1;
+#X connect 11 0 13 0;
+#X connect 13 0 0 0;
+#X connect 15 0 17 1;
+#X connect 17 0 27 0;
+#X connect 18 0 17 0;
+#X connect 27 0 16 0;
+#X connect 27 0 16 1;

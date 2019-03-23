@@ -1,0 +1,46 @@
+#N canvas 330 26 898 732 10;
+#X text 20 14 Advanced Computer Music Composition;
+#X text 22 76 We have yet to even touch on the notion of sampling \,
+or reading sound files into Pd for further manipulation. In order to
+do so \, we need to utilize the 'array.';
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sample 125119 float 0;
+#X coords 0 1 125118 -1 200 140 1;
+#X restore 447 146 graph;
+#X text 46 138 Use Put->Array to create the array itself \, and rename
+it to something useful.;
+#X text 46 188 To read a sample into our array (from our CPU disk)
+\, we use the [soundfiler] object.;
+#X obj 140 265 soundfiler;
+#X text 180 292 This will only work *if* your SAVED Pd patch is in
+the same directory (or folder) as your sound file.;
+#X text 53 345 We will want to normalize our sound (good for sampling)
+by sending a message to the 'sample' array.;
+#X msg 147 386 \; sample normalize;
+#X text 263 393 (note change in window);
+#X floatatom 140 290 5 0 0 0 - - -, f 5;
+#X obj 63 460 tabplay~ sample;
+#X obj 63 435 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 63 501 dac~;
+#X text 163 458 Using [tabplay~] \, we can play back our file!;
+#X text 175 530 Now \, we've only read in 100 samples of our soundfile
+\, because our initial array creation specified 100 points \, so our
+sound is super \, super short (sort of a click \, really).;
+#X obj 269 625 soundfiler;
+#X text 27 289 Number of samples;
+#X floatatom 269 676 5 0 0 0 - - -, f 5;
+#X obj 269 653 / 100;
+#X text 375 629 Using "flags" (in this case -resize) we can specify
+certain paramters for our array window when sampling sounds.;
+#X text 20 36 class 11 - sampling;
+#X msg 140 239 read yououghta.wav sample;
+#X msg 269 600 read -resize yououghta.wav sample;
+#X connect 5 0 10 0;
+#X connect 11 0 13 0;
+#X connect 11 0 13 1;
+#X connect 12 0 11 0;
+#X connect 16 0 19 0;
+#X connect 19 0 18 0;
+#X connect 22 0 5 0;
+#X connect 23 0 16 0;

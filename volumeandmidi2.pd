@@ -1,13 +1,13 @@
-#N canvas -8 -8 1920 997 10;
+#N canvas -5 5 1916 997 10;
 #X text 8 7 PD Workshop;
 #X text 8 25 Bastien Gliech;
 #X text 12 105 Difference between ~ and regular values?;
 #X obj 370 36 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 2000 1;
 #X floatatom 367 56 5 0 0 0 - - -, f 5;
 #X text 365 12 sliders output a defined value;
 #X obj 62 177 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 100 1;
+-1 -1 4000 1;
 #X text 25 170 127;
 #X text 39 295 0;
 #X text 86 235 frequency;
@@ -33,7 +33,7 @@
 #X text 403 240 Tranlate MIDI #s to frequency (Hz);
 #X obj 364 324 *~;
 #X obj 674 78 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X text 706 136 volume;
 #X obj 674 270 * 0.005;
 #X obj 364 266 osc~ 440;

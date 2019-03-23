@@ -1,0 +1,48 @@
+#N canvas 454 74 819 682 10;
+#X text 136 73 Logical tests are an important component of working
+with data.;
+#X floatatom 150 167 5 0 0 0 - - -, f 5;
+#X floatatom 190 167 5 0 0 0 - - -, f 5;
+#X obj 150 194 >;
+#X floatatom 150 226 5 0 0 0 - - -, f 5;
+#X obj 187 225 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 146 120 A basic logical test to decide if a number is greater
+than another;
+#X text 178 257 Result? 1 if yes \, or O if no.;
+#X text 207 276 Note that the outlet will continue to bang if true
+\, but still show 1;
+#X obj 198 329 >=;
+#X obj 231 329 <;
+#X obj 262 329 <=;
+#X obj 243 365 !=;
+#X text 270 366 is NOT equal to;
+#X obj 243 394 ==;
+#X text 271 395 is equal to;
+#X text 302 330 more operations;
+#X obj 423 357 >= 3;
+#X text 459 358 creation argument works \, too;
+#X obj 177 478 moses 10;
+#X floatatom 177 449 5 0 0 0 - - -, f 5;
+#X floatatom 177 507 5 0 0 0 - - -, f 5;
+#X floatatom 222 508 5 0 0 0 - - -, f 5;
+#X text 261 452 The [moses] object outputs an incoming number to the
+left if it is less than \, or to the right if it is greater than or
+equal to.;
+#X floatatom 275 554 5 0 0 0 - - -, f 5;
+#X obj 275 580 select 10;
+#X obj 275 605 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 357 581 The [select] object outputs a bang if an incoming number
+is matched to the creation argument;
+#X text 20 16 Advanced Computer Music Composition;
+#X text 21 35 class 3 - logic;
+#X connect 1 0 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 19 0 21 0;
+#X connect 19 1 22 0;
+#X connect 20 0 19 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;

@@ -1,0 +1,75 @@
+#N canvas 245 23 942 755 10;
+#X text 20 14 Advanced Computer Music Composition;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sample 132701 float 0;
+#X coords 0 1 132700 -1 200 140 1;
+#X restore 276 46 graph;
+#X obj 30 103 soundfiler;
+#X floatatom 30 188 10 0 0 0 - - -, f 10;
+#X msg 140 155 \; sample normalize;
+#X obj 140 131 del 500;
+#X obj 140 104 t b;
+#X text 504 97 *You can't use normalize as a flag when reading a file
+\, only writing.*;
+#X text 62 289 Some other ways (besides [tabplay~]) to interact with
+our audio in an array are...;
+#X obj 209 521 tabread~ sample;
+#X obj 209 496 line~;
+#X text 504 55 *Change properties on number box to read all of the
+numbers coming from soundfiler*;
+#X text 309 385 play twice as slow (third argument*2);
+#X text 346 447 play twice as fast (third argument/2);
+#X text 320 523 Note the changes in pitch for each of these.;
+#X obj 427 649 tabread4~ sample;
+#X text 538 644 A more accurate tabread~ \, which is able to interpolate
+sample values that precede and follow in real-time.;
+#X obj 427 676 dac~;
+#X text 552 679 Much cleaner result when sampling twice as slow \,
+because there are no "gaps" in the audio playback.;
+#X obj 209 549 dac~;
+#X obj 427 626 line~;
+#X floatatom 30 236 10 0 0 0 - - -, f 10;
+#X obj 30 210 / 44.1;
+#X text 96 236 duration in ms;
+#X text 96 186 total # of samples;
+#X obj 30 256 s dur;
+#X obj 583 320 r dur;
+#X obj 540 363 * 2;
+#X floatatom 540 385 10 0 0 0 - - -, f 10;
+#X obj 583 425 / 2;
+#X floatatom 583 447 10 0 0 0 - - -, f 10;
+#X text 235 334 starting sample \, ending sample \, duration (ms);
+#X msg 405 548 1 \, 85504 1938;
+#X msg 426 573 1 \, 85504 800;
+#X msg 459 597 1 \, 125119 1400;
+#X text 577 577 note that tabread4~ reads from 1st sample \, not 0th
+;
+#X text 20 35 class 11 - sampling \, cont'd;
+#X msg 30 75 read -resize yououghta.wav sample;
+#X msg 145 334 0 \, 132701 3009;
+#X msg 209 385 0 \, 132701 6018;
+#X msg 242 447 0 \, 132701 1504;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 22 0;
+#X connect 5 0 4 0;
+#X connect 6 0 5 0;
+#X connect 9 0 19 0;
+#X connect 9 0 19 1;
+#X connect 10 0 9 0;
+#X connect 15 0 17 0;
+#X connect 15 0 17 1;
+#X connect 20 0 15 0;
+#X connect 21 0 25 0;
+#X connect 22 0 21 0;
+#X connect 26 0 27 0;
+#X connect 26 0 29 0;
+#X connect 27 0 28 0;
+#X connect 29 0 30 0;
+#X connect 32 0 20 0;
+#X connect 33 0 20 0;
+#X connect 34 0 20 0;
+#X connect 37 0 2 0;
+#X connect 38 0 10 0;
+#X connect 39 0 10 0;
+#X connect 40 0 10 0;
